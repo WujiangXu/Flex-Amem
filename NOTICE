@@ -1,0 +1,51 @@
+FlexA-MEM
+Copyright (c) 2026 Wujiang Xu. Licensed under the MIT License (LICENSE).
+
+This repository contains code adapted from other projects, prompt texts reproduced from published papers and
+software, and reimplementations of published methods. Each is listed below with its source and license; the license
+texts that travel with copied code are in licenses/.
+
+Third-party code adapted here
+- A-mem-sys (MIT License, Copyright (c) 2025 AGI Research; licenses/A-mem-sys.LICENSE): the note-construction and
+  memory-evolution prompts in src/flexamem/memory/prompts.py (verbatim; their output schemas adapted for strict
+  structured output), and the evolution step amem_evolve in src/flexamem/memory/linker.py (adapted, with repairs).
+- mini-swe-agent 2.3.0 (MIT License, Copyright (c) 2025 Kilian A. Lieret and Carlos E. Jimenez;
+  licenses/mini-swe-agent.LICENSE.md): parts of src/flexamem/adapters/mswea.py and src/flexamem/llm/agent_model.py
+  (the agent's query and action steps, tool-call parsing) and the observation and format-error templates in
+  src/flexamem/bench/appworld/runner.py (adapted).
+- AppWorld 0.1.3.post1 (Apache License 2.0; licenses/AppWorld.LICENSE): the agent instructions in
+  src/flexamem/bench/appworld/runner.py are a condensed and modified version of AppWorld's ReAct agent prompt, without
+  its few-shot demonstration.
+- OpenHands (MIT License outside its enterprise/ directory, licenses/OpenHands.LICENSE, as distributed with
+  openhands-ai 1.11.0; https://github.com/All-Hands-AI/OpenHands; Xingyao Wang et al., ICLR 2025,
+  arXiv:2407.16741; OpenHands Agent SDK, MLSys 2026, arXiv:2511.03690): the summarizing-condenser prompt in
+  src/flexamem/memory/prompts.py (verbatim), as used in MemGym (Wujiang Xu et al., arXiv:2605.20833), for the
+  Summary+A-MEM baseline.
+
+Prompt texts reproduced from published papers
+These are short instructions, included with attribution so that the reported results can be reproduced. They are not
+covered by this repository's MIT License; any copyright in them remains with their authors.
+- LongMemEval (Di Wu et al., ICLR 2025, arXiv:2410.10813): reader and answer-checking prompts, transcribed from the
+  paper and its evaluation script (src/flexamem/bench/longmemeval/).
+- Mem0 (Prateek Chhikara et al., ECAI 2025, arXiv:2504.19413): the LoCoMo answer prompt and LLM-as-a-judge prompt
+  (src/flexamem/bench/locomo/prompts.py).
+- ReadAgent, MemGAS and Sculptor (below): their prompts are reproduced from the papers where the papers print them and
+  adapted where src/flexamem/memory/prompts.py says so.
+
+Methods reimplemented from the papers (no code from the authors' repositories)
+- ReadAgent (Kuang-Huei Lee et al., ICML 2024, arXiv:2402.09727): src/flexamem/methods/readagent.py
+- MemGAS (Derong Xu et al., ICLR 2026, arXiv:2505.19549): src/flexamem/methods/memgas.py
+- Sculptor (Mo Li et al., ICLR 2026, arXiv:2508.04664): src/flexamem/methods/sculptor.py
+- Adaptive Focus Memory (Christopher Cruz, 2025, arXiv:2511.12712, preprint): src/flexamem/methods/afm.py. The paper
+  prints no prompts; ours are written from its description.
+- Observation masking (Tobias Lindenbauer et al., "The Complexity Trap", NeurIPS 2025 DL4C workshop,
+  arXiv:2508.21433): src/flexamem/adapters/mswea.py
+
+Benchmarks and software used but not redistributed (downloaded or installed separately, under their own terms)
+- LongMemEval-S, cleaned release (Hugging Face xiaowu0162/longmemeval-cleaned).
+- LoCoMo (Adyasha Maharana et al., ACL 2024, arXiv:2402.17753; snap-research/locomo).
+- SWE-bench (Carlos E. Jimenez et al., ICLR 2024, arXiv:2310.06770), SWE-bench Verified, and the swebench 4.1.0
+  harness (MIT License).
+- AppWorld (Harsh Trivedi et al., ACL 2024, arXiv:2407.18901), appworld 0.1.3.post1 (Apache License 2.0).
+- sentence-transformers/all-MiniLM-L6-v2 (embeddings), tiktoken o200k_base (token counting), litellm and openai
+  (API clients).

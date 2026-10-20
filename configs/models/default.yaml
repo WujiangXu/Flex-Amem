@@ -1,0 +1,17 @@
+# Model roles. Any OpenAI-compatible endpoint works: base_url (empty: OPENAI_BASE_URL, else the OpenAI API) and the
+# API key in the first set variable of api_key_env. Another file can be selected with FLEXAMEM_MODELS=<path>.
+# The paper's runs used GPT-5.4 mini for the agent, memory and reader roles, and judges from other families: Claude
+# Sonnet 4.6 (judge, judge_locomo) and GPT-5.4 (judge2). The names below follow the providers' API names; adjust them
+# to your endpoint (e.g. a gateway that serves both families).
+base_url: null
+api_key_env: [OPENAI_API_KEY]
+max_concurrency: 48
+roles:
+  agent:  {model: gpt-5.4-mini, reasoning_effort: medium}
+  memory: {model: gpt-5.4-mini, reasoning_effort: low, max_tokens: 4000}   # writer, linker, merge, summarizer, gist, lookup
+  reader: {model: gpt-5.4-mini, reasoning_effort: medium, max_tokens: 8000}
+  judge:  {model: claude-sonnet-4-6, temperature: 0, max_tokens: 10}
+  judge_locomo: {model: claude-sonnet-4-6, temperature: 0, max_tokens: 300}  # LoCoMo: Mem0's J prompt asks for a sentence, then a JSON label
+  judge2: {model: gpt-5.4, reasoning_effort: low, max_tokens: 2000}
+embedder: sentence-transformers/all-MiniLM-L6-v2
+tokenizer: o200k_base

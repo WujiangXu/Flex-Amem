@@ -1,0 +1,16 @@
+# Endpoint settings read by scripts/make_tables.py (src/flexamem/analysis/tables.py).
+# summary_split: Summary+A-MEM history share x100 (30, 50 or 70) used for P1 (swe) and P2 (lme), frozen per benchmark
+# by results/decisions/2026-09-24_summary_amem_split.md. null = not frozen yet: the tables apply that decision's rule
+# to the loaded dev rows (highest dev accuracy at the endpoint budget, SWE 8k / LongMemEval 16k; ties -> lower mean
+# uncached cost; remaining ties -> 50) and mark the endpoints "split not frozen".
+# lme: 50 by that rule (dev_gate: 85.0 for every split at 16k, identical cost).
+# swe: 70 by that rule (dev_gate_v2 at 8k: 15/19 vs 12/19 for 0.3 and 13/19 for 0.5; at the freeze both stood at
+# 11/17, so even with both missing episodes resolved neither could reach 15).
+summary_split: {swe: 70, lme: 50}
+# flow_arm: the Flow method (render configuration) that the endpoints, comparisons and P0 runs use per benchmark, by
+# results/decisions/2026-09-24_flow_lme_render_tuning.md; its ablations are <flow_arm>_{noexp,nolinks,stacked,noevo}.
+# null = not frozen yet: the tables use the original `flow`.
+# swe: flow by that decision's SWE rule (dev_gate_v2(_flowvar) at 8k: 13/19 vs 12/19 for flow_s30_ld50).
+# These are the pre-registered arms of the endpoint tests. The paper's FlexA-MEM tables pass
+# make_tables.py --flow-arm-swe flow_noevo_zoom --flow-arm-lme flow_s30_ld50_noevo_zoom (docs/reproduce.md).
+flow_arm: {swe: flow, lme: flow_s30_ld50}

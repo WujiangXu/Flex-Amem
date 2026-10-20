@@ -1,0 +1,13 @@
+{
+  "files": {
+    "appworld_confirm.txt": {
+      "n": 147,
+      "sha256": "0363666ab927aec5c4f9e31b854c624274f23ac0ee489c7f240cdc955462edf9"
+    }
+  },
+  "note": "AppWorld confirmation set (docs/protocol/confirmation_appworld.md): train then dev, as AppWorld 0.1.3.post1 lists them; frozen at git tag prereg-confirm before any episode",
+  "sources": {
+    "appworld/data/datasets/dev.txt": "9fa976589300ea8905708257144d801d1604b06d85fb0181e381df8a3ba85001",
+    "appworld/data/datasets/train.txt": "93d9fe71e7a2e3b7529803d4a20b604f4ebf5ae806f321081140238068189d37"
+  }
+}

@@ -1,0 +1,9 @@
+artifacts/
+results/
+logs/
+/gold.*.json
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.env

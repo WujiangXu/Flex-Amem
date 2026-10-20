@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flexamem"
+version = "1.0.0"
+description = "FlexA-MEM: budget-adaptive agentic memory for LLM agents"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = [
+  "mini-swe-agent==2.3.0", "swebench==4.1.0", "litellm==1.82.6", "openai==2.33.0",
+  "tiktoken==0.13.0", "datasets", "numpy", "scipy", "statsmodels", "pyyaml", "tenacity",
+  "sentence-transformers", "docker==7.1.0", "gymnasium>=1.0.0", "tqdm", "pyarrow",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

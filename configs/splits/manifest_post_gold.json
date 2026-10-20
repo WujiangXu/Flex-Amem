@@ -1,0 +1,38 @@
+{
+  "excluded": [
+    "astropy__astropy-7606",
+    "astropy__astropy-8707",
+    "astropy__astropy-8872",
+    "django__django-10097",
+    "django__django-11138",
+    "django__django-16502",
+    "matplotlib__matplotlib-20488",
+    "psf__requests-1724",
+    "psf__requests-1766",
+    "psf__requests-1921",
+    "psf__requests-2317",
+    "psf__requests-2931",
+    "psf__requests-5414",
+    "psf__requests-6028",
+    "pylint-dev__pylint-4661",
+    "sphinx-doc__sphinx-10435",
+    "sphinx-doc__sphinx-7985",
+    "sphinx-doc__sphinx-8269",
+    "sphinx-doc__sphinx-8475",
+    "sympy__sympy-24661"
+  ],
+  "files": {
+    "swe_verified_eval95.txt": {
+      "n": 95,
+      "sha256": "95529585564d8f2b94b04efdf8a7be955e7661f5106c76dd83e52cb4ee701486"
+    },
+    "swe_verified_rest385.txt": {
+      "n": 385,
+      "sha256": "a6b4ffc19f793c8489960239f1568f8eda490fad9210f2ded52f20e5493963d5"
+    }
+  },
+  "sources": {
+    "swe_verified_eval100.txt": "659091ac323019de716f7af015102b017bb08c342415c7b648cd4df60c8442e6",
+    "verified_test.json": "b087b5dad72b3e765a6cf93a9e7d516d8796698a0fd358abb73c6627df19f66e"
+  }
+}
